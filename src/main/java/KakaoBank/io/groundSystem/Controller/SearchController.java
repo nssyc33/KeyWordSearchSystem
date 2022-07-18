@@ -68,6 +68,7 @@ public class SearchController {
 		}finally {
 			return returnMap;
 		}
+		
 	}
 	
 	@GetMapping("/history")
