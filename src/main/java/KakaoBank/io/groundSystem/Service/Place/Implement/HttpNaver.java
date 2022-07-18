@@ -73,14 +73,14 @@ public class HttpNaver implements HttpApiInterface {
 						.stream()
 						.map(x->{
 							Map tempMap = (Map)x;
-							tempMap.remove("link");
-							tempMap.remove("category");
-							tempMap.remove("description");
-							tempMap.remove("telephone");
-							tempMap.remove("roadAddress");
-							tempMap.remove("link");
-							tempMap.remove("mapx");
-							tempMap.remove("mapy");
+//							tempMap.remove("link");
+//							tempMap.remove("category");
+//							tempMap.remove("description");
+//							tempMap.remove("telephone");
+//							tempMap.remove("roadAddress");
+//							tempMap.remove("link");
+//							tempMap.remove("mapx");
+//							tempMap.remove("mapy");
 							tempMap.put("place_name", new String(((String)tempMap.get("title")).replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "")));
 							tempMap.put("address_name", new String(((String)tempMap.get("address")).replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "")));
 							tempMap.remove("title");

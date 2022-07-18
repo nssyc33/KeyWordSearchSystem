@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import KakaoBank.io.groundSystem.Data.Interface.DataInterface;
+import KakaoBank.io.groundSystem.Service.Interface.HttpApiInterface;
 import KakaoBank.io.groundSystem.Service.Interface.SearchInterface;
 
 @Service

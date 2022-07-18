@@ -67,17 +67,17 @@ public class HttpKakao implements HttpApiInterface{
 						.stream()
 						.map(x->{
 							Map tempMap = (Map)x;
-							tempMap.remove("category_group_code");
-							tempMap.remove("category_group_name");
-							tempMap.remove("category_name");
-							tempMap.remove("distance");
-							tempMap.remove("roadAddress");
-							tempMap.remove("id");
-							tempMap.remove("phone");
-							tempMap.remove("place_url");
-							tempMap.remove("road_address_name");
-							tempMap.remove("x");
-							tempMap.remove("y");
+//							tempMap.remove("category_group_code");
+//							tempMap.remove("category_group_name");
+//							tempMap.remove("category_name");
+//							tempMap.remove("distance");
+//							tempMap.remove("roadAddress");
+//							tempMap.remove("id");
+//							tempMap.remove("phone");
+//							tempMap.remove("place_url");
+//							tempMap.remove("road_address_name");
+//							tempMap.remove("x");
+//							tempMap.remove("y");
 							return tempMap;
 						})
 						.collect(Collectors.toList());
