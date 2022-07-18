@@ -6,12 +6,12 @@ public class LogTableVo {
 	
 	private String fnPosition;
 	private String msg;
-	private String reqDttm;
+	private long reqDttm;
 	
 	public LogTableVo(String fnPosition, String msg, long reqDttm){
 		this.fnPosition = fnPosition;
 		this.msg = msg;
-		this.reqDttm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(reqDttm);
+		this.reqDttm = reqDttm;
 	}
 
 	public String getFnPosition() {
@@ -22,7 +22,7 @@ public class LogTableVo {
 		return msg;
 	}
 
-	public String getReqDttm() {
+	public long getReqDttm() {
 		return reqDttm;
 	}
 

@@ -19,7 +19,7 @@ import KakaoBank.io.groundSystem.Service.HistoryInfoService;
 import KakaoBank.io.groundSystem.Utility.MessageEnum;
 
 @RestController
-@RequestMapping("/search")
+@RequestMapping("/search/place")
 public class SearchController {
 
 	@Autowired
@@ -54,8 +54,13 @@ public class SearchController {
 		Map<String, Object> returnMap = new HashMap<>();
 		try {
 			returnMap = searchInfoService.fn_mainService(inputMap);
-			returnMap.put("resultCd", MessageEnum.S000);
-			returnMap.put("resultMsg", MessageEnum.S000.getMsg());
+			if(returnMap.get("data") != null) {
+				returnMap.put("resultCd", MessageEnum.E010);
+				returnMap.put("resultMsg", MessageEnum.E010.getMsg());
+			}else {
+				returnMap.put("resultCd", MessageEnum.S000);
+				returnMap.put("resultMsg", MessageEnum.S000.getMsg());
+			}
 		}catch(ValidationException e) {
 			returnMap.put("resultCd", e.getExceptionCd());
 			returnMap.put("resultMsg", e.getExceptionMsg());
@@ -76,8 +81,13 @@ public class SearchController {
 		Map<String, Object> returnMap = new HashMap<>();
 		try {
 			returnMap = historyInfoService.fn_history();
-			returnMap.put("resultCd", MessageEnum.S000);
-			returnMap.put("resultMsg", MessageEnum.S000.getMsg());
+			if(returnMap.get("data") != null) {
+				returnMap.put("resultCd", MessageEnum.E010);
+				returnMap.put("resultMsg", MessageEnum.E010.getMsg());
+			}else {
+				returnMap.put("resultCd", MessageEnum.S000);
+				returnMap.put("resultMsg", MessageEnum.S000.getMsg());
+			}
 		}catch(ProcessException e) {
 			returnMap.put("resultCd", e.getExceptionCd());
 			returnMap.put("resultMsg", e.getExceptionMsg());

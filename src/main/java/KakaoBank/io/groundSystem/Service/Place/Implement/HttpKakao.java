@@ -27,8 +27,14 @@ import KakaoBank.io.groundSystem.Utility.MessageEnum;
 @Service("kakaoApi")
 public class HttpKakao implements HttpApiInterface{
 
+	@Value("${kakaoUri}")
+	private String kakaoUri;
+	
 	@Value("${kakaoKey}")
 	private String kakaoKey;
+	
+	@Value("${kakaoSize}")
+	private int kakaoSize;
 	
 	public Map fn_get_data(Map inputMap) throws Exception{
 		Map resultMap = new HashMap();
@@ -45,8 +51,8 @@ public class HttpKakao implements HttpApiInterface{
 			HttpHeaders headers = new HttpHeaders();
 			headers.set("Authorization", kakaoKey);
 			HttpEntity httpEntity = new HttpEntity(headers);
-			UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl("https://dapi.kakao.com/v2/local/search/keyword.json")
-																  .queryParam("size", 5)
+			UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(kakaoUri)
+																  .queryParam("size", kakaoSize)
 																  .queryParam("query", (String)inputMap.get("place"));
 			URI encodedUri =  uriBuilder.build().encode().toUri();
 			ResponseEntity<Map> response = restTemplate.exchange(encodedUri,HttpMethod.GET,httpEntity,Map.class);
@@ -67,17 +73,17 @@ public class HttpKakao implements HttpApiInterface{
 						.stream()
 						.map(x->{
 							Map tempMap = (Map)x;
-//							tempMap.remove("category_group_code");
-//							tempMap.remove("category_group_name");
-//							tempMap.remove("category_name");
-//							tempMap.remove("distance");
-//							tempMap.remove("roadAddress");
-//							tempMap.remove("id");
-//							tempMap.remove("phone");
-//							tempMap.remove("place_url");
-//							tempMap.remove("road_address_name");
-//							tempMap.remove("x");
-//							tempMap.remove("y");
+							tempMap.remove("category_group_code");
+							tempMap.remove("category_group_name");
+							tempMap.remove("category_name");
+							tempMap.remove("distance");
+							tempMap.remove("roadAddress");
+							tempMap.remove("id");
+							tempMap.remove("phone");
+							tempMap.remove("place_url");
+							tempMap.remove("road_address_name");
+							tempMap.remove("x");
+							tempMap.remove("y");
 							return tempMap;
 						})
 						.collect(Collectors.toList());

@@ -20,6 +20,7 @@ public class ReqHitoryPlace implements ReqHitoryInterface{
 	@Override
 	public List fn_hitory() throws Exception {
 		List<ReqHistoryTableVo> logList = ReqHistoryTable.fn_historyTable();
+		List rList = new ArrayList();
 		Map<String, Long> returnMap = logList.stream()
 				                             .collect(Collectors.groupingBy(ReqHistoryTableVo::getPlace, Collectors.counting()));
 		List<String> iList = new ArrayList(returnMap.keySet());
@@ -28,13 +29,11 @@ public class ReqHitoryPlace implements ReqHitoryInterface{
 			asList.add(new Counts(key, (Long)returnMap.get(key)));
 		}
 		if(asList.size() == 0) {
-			throw new ProcessException(MessageEnum.E010, MessageEnum.E010.getMsg());
+			return rList;
 		}
-		List rList = asList.stream()
-		                   .sorted(Comparator.comparing(Counts::getCounts).reversed()) 
-		                   .collect(Collectors.toList());
-		
-		
+		rList = asList.stream()
+		              .sorted(Comparator.comparing(Counts::getCounts).reversed()) 
+		              .collect(Collectors.toList());
 		return rList;
 	}
 	

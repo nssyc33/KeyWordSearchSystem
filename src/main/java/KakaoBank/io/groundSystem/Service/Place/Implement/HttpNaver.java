@@ -28,11 +28,17 @@ import KakaoBank.io.groundSystem.Utility.MessageEnum;
 @Service("NaverApi")
 public class HttpNaver implements HttpApiInterface {
 	
+	@Value("${naverUri}")
+	private String naverUri;
+	
 	@Value("${naverKey}")
 	private String naverKey;
 
 	@Value("${naverPwd}")
 	private String naverPwd;
+	
+	@Value("${naverDisplay}")
+	private int naverDisplay;
 	
 	public Map fn_get_data(Map inputMap) throws Exception{
 		Map resultMap = new HashMap();
@@ -51,8 +57,8 @@ public class HttpNaver implements HttpApiInterface {
 			headers.set("X-Naver-Client-Id", naverKey);
 			headers.set("X-Naver-Client-Secret", naverPwd);
 			HttpEntity httpEntity = new HttpEntity(headers);
-			UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl("https://openapi.naver.com/v1/search/local")
-																  .queryParam("display", 5)
+			UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(naverUri)
+																  .queryParam("display", naverDisplay)
 																  .queryParam("query", (String)inputMap.get("place"));
 			URI encodedUri =  uriBuilder.build().encode().toUri();
 			ResponseEntity<Map> response = restTemplate.exchange(encodedUri,HttpMethod.GET,httpEntity,Map.class);
@@ -73,14 +79,14 @@ public class HttpNaver implements HttpApiInterface {
 						.stream()
 						.map(x->{
 							Map tempMap = (Map)x;
-//							tempMap.remove("link");
-//							tempMap.remove("category");
-//							tempMap.remove("description");
-//							tempMap.remove("telephone");
-//							tempMap.remove("roadAddress");
-//							tempMap.remove("link");
-//							tempMap.remove("mapx");
-//							tempMap.remove("mapy");
+							tempMap.remove("link");
+							tempMap.remove("category");
+							tempMap.remove("description");
+							tempMap.remove("telephone");
+							tempMap.remove("roadAddress");
+							tempMap.remove("link");
+							tempMap.remove("mapx");
+							tempMap.remove("mapy");
 							tempMap.put("place_name", new String(((String)tempMap.get("title")).replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "")));
 							tempMap.put("address_name", new String(((String)tempMap.get("address")).replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "")));
 							tempMap.remove("title");

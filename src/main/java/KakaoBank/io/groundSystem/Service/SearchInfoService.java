@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import KakaoBank.io.groundSystem.Data.Interface.DataInterface;
-import KakaoBank.io.groundSystem.Service.Interface.HttpApiInterface;
+import KakaoBank.io.groundSystem.Exception.ProcessException;
+import KakaoBank.io.groundSystem.Exception.ValidationException;
 import KakaoBank.io.groundSystem.Service.Interface.SearchInterface;
 
 @Service
@@ -29,6 +30,11 @@ public class SearchInfoService {
 			data.fn_logging(inputMap);
 			returnMap.put("data", search.fn_get_search_data(inputMap));
 			return returnMap;
+		}catch(ValidationException e) {
+			data.fn_logging_exception("fn_mainService", e.getExceptionMsg());
+			throw e;
+		}catch(ProcessException e) {
+			throw e;
 		}catch(Exception e) {
 			data.fn_logging_exception("fn_mainService", e.getMessage());
 			throw e;
