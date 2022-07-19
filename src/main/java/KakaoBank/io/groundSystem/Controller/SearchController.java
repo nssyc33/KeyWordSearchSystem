@@ -33,8 +33,13 @@ public class SearchController {
 		Map<String, Object> returnMap = new HashMap<>();
 		try {
 			returnMap = searchInfoService.fn_mainService(inputMap);
-			returnMap.put("resultCd", MessageEnum.S000);
-			returnMap.put("resultMsg", MessageEnum.S000.getMsg());
+			if(returnMap.get("data") != null) {
+				returnMap.put("resultCd", MessageEnum.S000);
+				returnMap.put("resultMsg", MessageEnum.S000.getMsg());
+			}else {
+				returnMap.put("resultCd", MessageEnum.E010);
+				returnMap.put("resultMsg", MessageEnum.E010.getMsg());
+			}
 		}catch(ValidationException e) {
 			returnMap.put("resultCd", e.getExceptionCd());
 			returnMap.put("resultMsg", e.getExceptionMsg());
@@ -55,11 +60,11 @@ public class SearchController {
 		try {
 			returnMap = searchInfoService.fn_mainService(inputMap);
 			if(returnMap.get("data") != null) {
-				returnMap.put("resultCd", MessageEnum.E010);
-				returnMap.put("resultMsg", MessageEnum.E010.getMsg());
-			}else {
 				returnMap.put("resultCd", MessageEnum.S000);
 				returnMap.put("resultMsg", MessageEnum.S000.getMsg());
+			}else {
+				returnMap.put("resultCd", MessageEnum.E010);
+				returnMap.put("resultMsg", MessageEnum.E010.getMsg());
 			}
 		}catch(ValidationException e) {
 			returnMap.put("resultCd", e.getExceptionCd());
@@ -82,11 +87,11 @@ public class SearchController {
 		try {
 			returnMap = historyInfoService.fn_history();
 			if(returnMap.get("data") != null) {
-				returnMap.put("resultCd", MessageEnum.E010);
-				returnMap.put("resultMsg", MessageEnum.E010.getMsg());
-			}else {
 				returnMap.put("resultCd", MessageEnum.S000);
 				returnMap.put("resultMsg", MessageEnum.S000.getMsg());
+			}else {
+				returnMap.put("resultCd", MessageEnum.E010);
+				returnMap.put("resultMsg", MessageEnum.E010.getMsg());
 			}
 		}catch(ProcessException e) {
 			returnMap.put("resultCd", e.getExceptionCd());
