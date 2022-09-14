@@ -8,7 +8,7 @@
 		<version>2.6.9</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>KakaoBank.io</groupId>
+	<groupId>Spring.io</groupId>
 	<artifactId>groundSystem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>groundSystem</name>
