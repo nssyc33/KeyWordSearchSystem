@@ -34,8 +34,6 @@ public class ApplicationParactice1 implements ApplicationRunner, CommandLineRunn
 		System.out.println("확인 : " + ac.getStartupDate());
 		System.out.println("확인 : " + fn_returnTime(ac.getStartupDate()));
 	
-		
-		
 	}
 	
 	@Override
