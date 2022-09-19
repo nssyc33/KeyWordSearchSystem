@@ -12,13 +12,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ApplicationParactice1 implements ApplicationRunner, CommandLineRunner{
+public class ApplicationParactice1 implements ApplicationRunner{
 
 	@Autowired
 	private ApplicationContext ac;
-	
-	@Autowired
-	BeanFactory bf;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -32,26 +29,7 @@ public class ApplicationParactice1 implements ApplicationRunner, CommandLineRunn
 		System.out.println("확인 : " + ac.CLASSPATH_URL_PREFIX);
 		System.out.println("확인 : " + ac.FACTORY_BEAN_PREFIX);
 		System.out.println("확인 : " + ac.getStartupDate());
-		System.out.println("확인 : " + fn_returnTime(ac.getStartupDate()));
 	
 	}
-	
-	@Override
-	public void run(String... args) throws Exception {
-		System.out.println("CommandLineRunner 를 지나갑니다.");
-		String[] str = new String[]{"test1","test2","test3","test4","test5","test6","test7","test8"};
-		this.fn_test(str);
-	}
-	
-	private void fn_test(String... str) {
-		for (String string : str) {
-			System.out.println(string);
-		}
-	}
-	
-	private String fn_returnTime(long longData) {
-		Date date = new Date(longData);
-		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-		return formatter.format(date);
-	}
+
 }

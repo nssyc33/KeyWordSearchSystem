@@ -4,6 +4,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TestController {
+public class RedisController {
 
 }
