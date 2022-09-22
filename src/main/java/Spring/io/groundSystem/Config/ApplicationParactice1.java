@@ -19,16 +19,16 @@ public class ApplicationParactice1 implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("ApplicationRunner 를 지나갑니다.");
-		String[] beans = ac.getBeanDefinitionNames();
-		for (String beanName : beans) {
-			System.out.println("빈 이름 : " + beanName);
-		}
-		
-		System.out.println("확인 : " + ac.CLASSPATH_ALL_URL_PREFIX);
-		System.out.println("확인 : " + ac.CLASSPATH_URL_PREFIX);
-		System.out.println("확인 : " + ac.FACTORY_BEAN_PREFIX);
-		System.out.println("확인 : " + ac.getStartupDate());
+//		System.out.println("ApplicationRunner 를 지나갑니다.");
+//		String[] beans = ac.getBeanDefinitionNames();
+//		for (String beanName : beans) {
+//			System.out.println("빈 이름 : " + beanName);
+//		}
+//		
+//		System.out.println("확인 : " + ac.CLASSPATH_ALL_URL_PREFIX);
+//		System.out.println("확인 : " + ac.CLASSPATH_URL_PREFIX);
+//		System.out.println("확인 : " + ac.FACTORY_BEAN_PREFIX);
+//		System.out.println("확인 : " + ac.getStartupDate());
 	
 	}
 

@@ -12,7 +12,7 @@ public class JpaService {
 	private SaleRepository saleRepository;
 	
 	public Map<String, Object> fn_Service(){
-		List<DataTbSale> asList = saleRepository.findAllByRn(1);
+		List<DataTbSale> asList = (List<DataTbSale>) saleRepository.findAll();
 		System.out.println("결과 건수 : "+ asList.size());
 		asList.stream()
 		      .forEach(System.out::println);
