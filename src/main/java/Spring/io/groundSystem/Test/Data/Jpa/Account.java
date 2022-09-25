@@ -1,12 +1,15 @@
-package Spring.io.groundSystem.Test.Data;
+package Spring.io.groundSystem.Test.Data.Jpa;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.ToString;
+
 @Entity
 @Table(name = "TB_AAA")
+@ToString
 public class Account {
 
 	@Id @GeneratedValue
