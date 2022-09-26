@@ -35,6 +35,7 @@ public class ApplicationPractice2Jpa implements ApplicationRunner{
 		this.fn_jpaCase1();
 		this.fn_jpaCase2();
 		this.fn_jpaCase3();
+		this.fn_jpaCase4();
 	}
 	
 	private void fn_jpaCase0() {
@@ -68,12 +69,21 @@ public class ApplicationPractice2Jpa implements ApplicationRunner{
 	
 	private void fn_jpaCase3() {
 		System.out.println("=====================================================Jpa case3");
-		
-		List<Account> asList = accountRepository.finbByName("youngCheol");
+		List<Account> asList = accountRepository.finbByNameTest("youngCheol");
 		asList.stream()
 			  .forEach(a->{
 				  System.out.println(a.getDept() + " : " + a.getName());
 			  });
 		System.out.println("=====================================================Jpa case3");
+	}
+	
+	private void fn_jpaCase4() {
+		System.out.println("=====================================================Jpa case4");
+		List<Account> asList = accountRepository.finbByNameNativeQueryTest();
+		asList.stream()
+			  .forEach(a->{
+				  System.out.println(a.getDept() + " : " + a.getName());
+			  });
+		System.out.println("=====================================================Jpa case4");
 	}
 }

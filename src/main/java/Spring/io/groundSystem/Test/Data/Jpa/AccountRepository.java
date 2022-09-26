@@ -13,6 +13,9 @@ public interface AccountRepository extends JpaRepository<Account, Integer>{
 	List<Account> findAllById(Integer id);
 	
 	@Query("select u from Account u where u.name = :name")
-	List<Account> finbByName(@Param("name") String name);
-
+	List<Account> finbByNameTest(@Param("name") String name);
+	
+	@Query(nativeQuery = true, value = "SELECT /*+ FULL(TA) */ * FROM TB_AAA TA WHERE 1 = 1")
+	List<Account> finbByNameNativeQueryTest();
+	
 }
