@@ -1,4 +1,4 @@
-package KakaoBank.io.groundSystem;
+package Spring.io.groundSystem;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,8 +13,8 @@ import Spring.io.groundSystem.Test.Data.Jpa.Account;
 import Spring.io.groundSystem.Test.Data.Jpa.AccountRepository;
 
 @RunWith(SpringRunner.class)
-@Rollback(false)
-@DataJpaTest
+//@Rollback(false)
+//@DataJpaTest
 public class RepositoryTest {
 
 	@Autowired
