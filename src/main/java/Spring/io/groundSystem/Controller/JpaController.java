@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import Spring.io.groundSystem.Test.Data.Jpa.JpaService;
+import Spring.io.groundSystem.ZPractice.Jpa.JpaService;
 
 @RestController
 public class JpaController {

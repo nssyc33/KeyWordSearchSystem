@@ -2,6 +2,8 @@ package Spring.io.groundSystem;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -11,8 +13,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import Spring.io.groundSystem.Test.Data.Jpa.Account;
-import Spring.io.groundSystem.Test.Data.Jpa.AccountRepository;
+import Spring.io.groundSystem.ZPractice.Jpa.Account;
+import Spring.io.groundSystem.ZPractice.Jpa.AccountRepository;
 
 @RunWith(SpringRunner.class)
 @Rollback(false)
@@ -24,7 +26,6 @@ class JpaTest {
 	
 	@Test
 	public void test_0() {
-		Optional<Map> asMap = new HashMap<>():
 	}
 	
 	@Test

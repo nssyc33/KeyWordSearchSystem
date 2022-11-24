@@ -12,9 +12,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import Spring.io.groundSystem.Test.Data.Jpa.Account;
-import Spring.io.groundSystem.Test.Data.Jpa.AccountRepository;
-import Spring.io.groundSystem.Test.Data.Jpa.SaleRepository;
+import Spring.io.groundSystem.ZPractice.Jpa.Account;
+import Spring.io.groundSystem.ZPractice.Jpa.AccountRepository;
+import Spring.io.groundSystem.ZPractice.Jpa.SaleRepository;
 
 @Component
 @Transactional
@@ -32,10 +32,10 @@ public class ApplicationPractice2Jpa implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		this.fn_jpaCase0();
-		this.fn_jpaCase1();
+//		this.fn_jpaCase1();
 		this.fn_jpaCase2();
-		this.fn_jpaCase3();
-		this.fn_jpaCase4();
+//		this.fn_jpaCase3();
+//		this.fn_jpaCase4();
 	}
 	
 	private void fn_jpaCase0() {
@@ -56,7 +56,7 @@ public class ApplicationPractice2Jpa implements ApplicationRunner{
 		System.out.println("=====================================================Jpa case2");
 		Account ac = new Account();
 		ac.setDept("IT");
-		ac.setName("jungHwa");
+		ac.setName("youngCheol");
 		accountRepository.save(ac);
 		
 		List<Account> asList = accountRepository.findAll();
@@ -67,23 +67,23 @@ public class ApplicationPractice2Jpa implements ApplicationRunner{
 		System.out.println("=====================================================Jpa case2");
 	}
 	
-	private void fn_jpaCase3() {
-		System.out.println("=====================================================Jpa case3");
-		List<Account> asList = accountRepository.finbByNameTest("youngCheol");
-		asList.stream()
-			  .forEach(a->{
-				  System.out.println(a.getDept() + " : " + a.getName());
-			  });
-		System.out.println("=====================================================Jpa case3");
-	}
-	
-	private void fn_jpaCase4() {
-		System.out.println("=====================================================Jpa case4");
-		List<Account> asList = accountRepository.finbByNameNativeQueryTest();
-		asList.stream()
-			  .forEach(a->{
-				  System.out.println(a.getDept() + " : " + a.getName());
-			  });
-		System.out.println("=====================================================Jpa case4");
-	}
+//	private void fn_jpaCase3() {
+//		System.out.println("=====================================================Jpa case3");
+//		List<Account> asList = accountRepository.finbByNameTest("youngCheol");
+//		asList.stream()
+//			  .forEach(a->{
+//				  System.out.println(a.getDept() + " : " + a.getName());
+//			  });
+//		System.out.println("=====================================================Jpa case3");
+//	}
+//	
+//	private void fn_jpaCase4() {
+//		System.out.println("=====================================================Jpa case4");
+//		List<Account> asList = accountRepository.finbByNameNativeQueryTest();
+//		asList.stream()
+//			  .forEach(a->{
+//				  System.out.println(a.getDept() + " : " + a.getName());
+//			  });
+//		System.out.println("=====================================================Jpa case4");
+//	}
 }

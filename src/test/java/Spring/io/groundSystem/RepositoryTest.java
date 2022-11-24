@@ -9,8 +9,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import Spring.io.groundSystem.Test.Data.Jpa.Account;
-import Spring.io.groundSystem.Test.Data.Jpa.AccountRepository;
+import Spring.io.groundSystem.ZPractice.Jpa.Account;
+import Spring.io.groundSystem.ZPractice.Jpa.AccountRepository;
 
 @RunWith(SpringRunner.class)
 //@Rollback(false)

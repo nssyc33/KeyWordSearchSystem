@@ -1,4 +1,4 @@
-package Spring.io.groundSystem.Test.Data.Jpa;
+package Spring.io.groundSystem.ZPractice.Jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

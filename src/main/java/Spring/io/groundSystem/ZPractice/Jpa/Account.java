@@ -1,22 +1,26 @@
-package Spring.io.groundSystem.Test.Data.Jpa;
+package Spring.io.groundSystem.ZPractice.Jpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.ToString;
 
 @Entity
-@Table(name = "TB_AAA")
+@Table(name = "TB_ACCOUNT")
 @ToString
 public class Account {
 
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name="name")
 	private String name;
-	
+
+	@Column(name="dept")
 	private String dept;
 
 	public Long getId() {
